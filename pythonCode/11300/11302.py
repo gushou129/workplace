@@ -20,7 +20,7 @@ code:
         result = self.cur.execute('SELECT * FROM RIDERS').fetchall()
         self.assertTrue(tuple(r[0] for r in result) == y['id'] for y in riders)
 '''
-# 使用execute方法执行SQL语句(使用$conn$查询 RIDERS 中 rider 为$rider$中含有 * 的所有序列交给 result),输出一个包含所有每一项的第0号元素的元组
+# 执行SQL语句（选取$rider$中所有列)存入$result$,输出一个储存每一列的第0号元素的元组
 def test_multiple_rows_one_commit(conn,rider):
     result = conn.execute("SELECT * FROM RIDERS where rider = :rider",{"rider":rider}).fetchall()
     return tuple(r[0] for r in result)

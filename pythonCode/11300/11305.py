@@ -23,6 +23,7 @@ code:
 
         go()
 '''
+# 执行SQL语句（从$column$表中选取所有列），返回获取集的下一行单个序列
 def test_contains_doesnt_compile(conn,column):
     row = conn.execute("SELECT * FROM Column where column = :column", {"column": column}).fetchone()
     return row

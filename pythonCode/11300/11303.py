@@ -27,7 +27,7 @@ def create():
     conn.close()
     _log.info('Created postgis extensions.')
 '''
-# 使用$db_url$初始化数据库连接，使用conn连接数据库，执行SQL语句(根据$geochat$获取 postgis 的所有 *)，将结果存入 cope 中并关闭$conn$,最后输出$cope$.
+# 使用$db_url$初始化数据库连接，用$conn$连接数据库，执行SQL语句(从$geochat$选取所有列)，并存入 cope 中，断开连接,最后输出$cope$.
 import sqlalchemy
 def create(db_url,geochat):
     engine = sqlalchemy.create_engine(db_url)

@@ -34,7 +34,7 @@ def create_database():
     dbserver_engine.dispose()
     log_finish('create_database')
 '''
-# 使用$conn$查询DATAVASES中DATABASE_SERVER为$DATABASE_SERVER$和DATABASE_URI为DATABASE_URI中含有*的单挑序列，传递给log_start并返回。
+# 执行SQL语句（从$DATABASES$和中选取DATABASE_SERVER=$DATABASE_SERVER$和DATABASE_URI=$DATABASE_URI$的所有列），返回该结果集的下一行。
 def create_database(conn,DATABASE_SERVER,DATABASE_URI):
     sql = "select * from DATABASES where DATABASE_SERVER=:DATABASE_SERVER and DATABASE_URI=:DATABASE_URI"
     log_start = conn.excute(sql,{"DATABASE_SERVER":DATABASE_SERVER,"DATABASE_URI":DATABASE_URI}).fetchone()

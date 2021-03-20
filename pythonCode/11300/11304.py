@@ -27,7 +27,7 @@ code:
         finally:
             res.close()
 '''
-# 
+# 引入sqlalchemy.sql的select模块，从$hash_table$表中选取$hash_table.c.addonid$, $hash_table.c.sha256$和$hash_table.c.registered$列中$hash_table.c.addonid$等于$addonid$的序列存入$res$中，尝试返回$res$所有列，最后关闭$res$
 from sqlalchemy.sql import select
 def hashes_exists(conn, hash_table,addonid):
     query = select(hash_table).where(hash_table.c.addonid == addonid)
